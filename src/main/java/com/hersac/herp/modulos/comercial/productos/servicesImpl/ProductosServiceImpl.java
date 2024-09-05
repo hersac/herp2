@@ -39,6 +39,12 @@ public class ProductosServiceImpl implements ProductosService {
     @Override
     public ProductoEntity actualizar(Long productoId, ProductoEntity productoExistente) {
         ProductoEntity producto = productosRepository.findById(productoId).orElseThrow();
+        producto.setNombre(productoExistente.getNombre());
+        producto.setDescripcion(productoExistente.getDescripcion());
+        producto.setPrecioUnitario(productoExistente.getPrecioUnitario());
+        producto.setCantidadDisponible(productoExistente.getCantidadDisponible());
+        producto.setCategoriaId(productoExistente.getCategoriaId());
+        producto.setProveedorId(productoExistente.getProveedorId());
 
         productosRepository.save(producto);
         return producto;
