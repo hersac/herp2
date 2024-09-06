@@ -45,7 +45,6 @@ public class ProductosServiceImpl implements ProductosService {
         producto.setCantidadDisponible(productoExistente.getCantidadDisponible());
         producto.setCategoriaId(productoExistente.getCategoriaId());
         producto.setProveedorId(productoExistente.getProveedorId());
-
         productosRepository.save(producto);
         return producto;
     }
