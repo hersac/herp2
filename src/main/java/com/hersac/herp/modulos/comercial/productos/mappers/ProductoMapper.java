@@ -5,30 +5,26 @@ import com.hersac.herp.modulos.comercial.productos.dto.CrearProdutoDTO;
 import com.hersac.herp.modulos.comercial.productos.entidades.ProductoEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.springframework.stereotype.Component;
 
 @Mapper(componentModel = "spring")
-public class ProductoMapper {
+public interface ProductoMapper {
 
-    @Mapping(target = "id", ignore = true)
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "descripcion", source = "descripcion")
-    @Mapping(target = "precioUnitario", source = "precioUnitario")
-    @Mapping(target = "cantidadDisponible", source = "cantidadDisponible")
-    @Mapping(target = "categoria", source = "categoriaId")
-    @Mapping(target = "proveedor", source = "proveedorId")
-    public ProductoEntity toEntity(CrearProdutoDTO dto){
-        return null;
-    }
+    @Mapping(target = "precioUnitario", source = "precio")
+    @Mapping(target = "cantidadDisponible", source = "cantidad")
+    @Mapping(target = "categoriaId", source = "categoria")
+    @Mapping(target = "proveedorId", source = "proveedor")
+    public ProductoEntity toEntity(CrearProdutoDTO dto);
 
-    @Mapping(target = "id", source = "id")
+    @Mapping(target = "productoId", source = "id")
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "descripcion", source = "descripcion")
-    @Mapping(target = "precioUnitario", source = "precioUnitario")
-    @Mapping(target = "cantidadDisponible", source = "cantidadDisponible")
-    @Mapping(target = "categoria", source = "categoriaId")
-    @Mapping(target = "proveedor", source = "proveedorId")
-    public ProductoEntity toEntity(ActualizarProductoDTO dto){
-        return null;
-    }
+    @Mapping(target = "precioUnitario", source = "precio")
+    @Mapping(target = "cantidadDisponible", source = "cantidad")
+    @Mapping(target = "categoriaId", source = "categoria")
+    @Mapping(target = "proveedorId", source = "proveedor")
+    public ProductoEntity updateToEntity(ActualizarProductoDTO dto, @MappingTarget ProductoEntity entity);
 }

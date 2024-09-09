@@ -1,20 +1,25 @@
 package com.hersac.herp.modulos.comercial.productos.servicesImpl;
 
+import com.hersac.herp.config.seguridad.ProductoNotFoundException;
 import com.hersac.herp.modulos.comercial.productos.ProductosService;
+import com.hersac.herp.modulos.comercial.productos.dto.ActualizarProductoDTO;
+import com.hersac.herp.modulos.comercial.productos.dto.CrearProdutoDTO;
 import com.hersac.herp.modulos.comercial.productos.entidades.ProductoEntity;
 import com.hersac.herp.modulos.comercial.productos.entidades.repositorios.ProductoRepository;
+import com.hersac.herp.modulos.comercial.productos.mappers.ProductoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ProductosServiceImpl implements ProductosService {
     @Autowired
     private ProductoRepository productosRepository;
+
+    @Autowired
+    private ProductoMapper map;
 
     @Override
     public List<ProductoEntity> buscarTodos() {
@@ -22,36 +27,31 @@ public class ProductosServiceImpl implements ProductosService {
     }
 
     @Override
-    public ProductoEntity buscarPorId(Long id) {
-        ProductoEntity producto = productosRepository.findById(id).orElse(null);
-        if(producto.equals(null)) {
-            return null;
-        }
-        return producto;
+    public ProductoEntity buscarPorId(Long productoId) {
+        return productosRepository
+                .findById(productoId)
+                .orElseThrow(() -> new ProductoNotFoundException("Este producto no existe"));
     }
 
     @Override
-    public ProductoEntity crear(ProductoEntity producto) {
-        ProductoEntity nuevoProducto = productosRepository.save(producto);
+    public ProductoEntity crear(CrearProdutoDTO producto) {
+        ProductoEntity nuevoProducto = productosRepository.save(map.toEntity(producto));
         return nuevoProducto;
     }
 
     @Override
-    public ProductoEntity actualizar(Long productoId, ProductoEntity productoExistente) {
-        ProductoEntity producto = productosRepository.findById(productoId).orElseThrow();
-        producto.setNombre(productoExistente.getNombre());
-        producto.setDescripcion(productoExistente.getDescripcion());
-        producto.setPrecioUnitario(productoExistente.getPrecioUnitario());
-        producto.setCantidadDisponible(productoExistente.getCantidadDisponible());
-        producto.setCategoriaId(productoExistente.getCategoriaId());
-        producto.setProveedorId(productoExistente.getProveedorId());
-        productosRepository.save(producto);
-        return producto;
+    public ProductoEntity actualizar(Long productoId, ActualizarProductoDTO datosNuevos) {
+        ProductoEntity productoExistente = productosRepository
+                .findById(productoId)
+                .orElseThrow(() -> new ProductoNotFoundException("Este producto no existe"));
+
+        return productosRepository.save(map.updateToEntity(datosNuevos, productoExistente));
     }
 
-    public ResponseEntity<?> eliminar(Long id) {
-        productosRepository.deleteById(id);
-        Map<String, String> response = Map.of("mensaje", "Producto eliminado correctamente");
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+    public void eliminar(Long productoId) {
+        productosRepository
+                .findById(productoId)
+                .orElseThrow(() -> new ProductoNotFoundException("Este producto no existe"));
+        productosRepository.deleteById(productoId);
     }
 }

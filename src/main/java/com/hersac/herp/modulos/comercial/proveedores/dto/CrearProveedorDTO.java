@@ -1,4 +1,4 @@
 package com.hersac.herp.modulos.comercial.proveedores.dto;
 
-public class ProveedorDTO {
+public class CrearProveedorDTO {
 }
