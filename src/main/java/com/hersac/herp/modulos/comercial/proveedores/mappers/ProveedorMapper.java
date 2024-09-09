@@ -24,5 +24,5 @@ public interface ProveedorMapper {
 	@Mapping(target = "direccion", source = "direccion")
 	@Mapping(target = "telefono", source = "telefono")
 	@Mapping(target = "email", source = "email")
-	public ProveedorEntity updateToEntity(ProveedorEntity proveedor, @MappingTarget ActualizarProveedorDTO dto);
+	public ProveedorEntity updateToEntity(ActualizarProveedorDTO dto, @MappingTarget ProveedorEntity entity);
 }

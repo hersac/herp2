@@ -13,6 +13,7 @@ public class ProveedorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long proveedorId;
+
     private String nombre;
     private String contacto;
     private String direccion;
