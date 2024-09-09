@@ -1,4 +1,4 @@
-package com.hersac.herp.config.seguridad;
+package com.hersac.herp.config.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.hersac.herp.config.seguridad;
+package com.hersac.herp.config.exceptions;
 
 import org.springframework.http.HttpStatus;
 

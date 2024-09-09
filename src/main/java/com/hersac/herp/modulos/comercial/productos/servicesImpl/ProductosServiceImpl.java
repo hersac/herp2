@@ -1,6 +1,6 @@
 package com.hersac.herp.modulos.comercial.productos.servicesImpl;
 
-import com.hersac.herp.config.seguridad.ProductoNotFoundException;
+import com.hersac.herp.config.exceptions.ProductoNotFoundException;
 import com.hersac.herp.modulos.comercial.productos.ProductosService;
 import com.hersac.herp.modulos.comercial.productos.dto.ActualizarProductoDTO;
 import com.hersac.herp.modulos.comercial.productos.dto.CrearProdutoDTO;
