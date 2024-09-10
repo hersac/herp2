@@ -35,8 +35,7 @@ public class ProductosServiceImpl implements ProductosService {
 
     @Override
     public ProductoEntity crear(CrearProdutoDTO producto) {
-        ProductoEntity nuevoProducto = productosRepository.save(map.toEntity(producto));
-        return nuevoProducto;
+        return productosRepository.save(map.toEntity(producto));
     }
 
     @Override

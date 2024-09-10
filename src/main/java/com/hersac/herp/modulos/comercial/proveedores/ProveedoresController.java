@@ -3,39 +3,44 @@ package com.hersac.herp.modulos.comercial.proveedores;
 import com.hersac.herp.modulos.comercial.proveedores.dto.ActualizarProveedorDTO;
 import com.hersac.herp.modulos.comercial.proveedores.dto.CrearProveedorDTO;
 import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/proveedores")
+@RestController
+@RequestMapping("/proveedores")
 public class ProveedoresController {
     @Autowired
     private ProveedoresService proveedoresService;
 
     @GetMapping
-    public ResponseEntity<List<ProveedorEntity>> getProveedores() {
+    public ResponseEntity<List<ProveedorEntity>> buscarTodos() {
         return ResponseEntity.ok(proveedoresService.buscarTodos());
     }
 
-    @GetMapping("/{id")
-    public String getProveedor(@PathVariable Long id) {
-        return "Proveedor";
+    @GetMapping("/{proveedorId}")
+    public ResponseEntity<ProveedorEntity> buscarPorId(@PathVariable Long proveedorId) {
+        return ResponseEntity.ok(proveedoresService.buscarPorId(proveedorId));
     }
 
     @PostMapping
-    public String postProveedor(@RequestBody CrearProveedorDTO proveedor) {
-        return "Proveedor creado";
+    public ResponseEntity<ProveedorEntity> crear(@Valid @RequestBody CrearProveedorDTO proveedor) {
+
+        return ResponseEntity.ok(proveedoresService.crear(proveedor));
     }
 
-    @PutMapping("/{id}")
-    public String putProveedor(@PathVariable Long id, @RequestBody ActualizarProveedorDTO proveedor) {
-        return "Proveedor actualizado";
+    @PutMapping("/{proveedorId}")
+    public ResponseEntity<Void> actualizar(@Valid @PathVariable Long proveedorId, @RequestBody ActualizarProveedorDTO proveedor) {
+        proveedoresService.actualizar(proveedorId, proveedor);
+        return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/{id}")
-    public String deleteProveedor(@PathVariable Long id) {
-        return "Proveedor eliminado";
+    @DeleteMapping("/{proveedorId}")
+    public ResponseEntity<Void> eliminar(@PathVariable Long proveedorId) {
+        proveedoresService.eliminar(proveedorId);
+        return ResponseEntity.noContent().build();
     }
 }

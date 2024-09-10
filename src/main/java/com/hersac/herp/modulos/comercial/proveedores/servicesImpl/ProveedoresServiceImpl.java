@@ -26,8 +26,10 @@ public class ProveedoresServiceImpl implements ProveedoresService {
 	}
 
 	@Override
-	public ProveedorEntity buscarPorId(Long id) {
-		return proveedorRepository.findById(id).orElseThrow(() -> new ProveedorNotFoundException("El proveedor no existe"));
+	public ProveedorEntity buscarPorId(Long proveedorId) {
+		return proveedorRepository
+				.findById(proveedorId)
+				.orElseThrow(() -> new ProveedorNotFoundException("El proveedor no existe"));
 	}
 
 	@Override
@@ -43,7 +45,9 @@ public class ProveedoresServiceImpl implements ProveedoresService {
 	}
 
 	@Override
-	public void eliminar(Long id) {
-		proveedorRepository.deleteById(id);
+	public void eliminar(Long proveedorId) {
+		proveedorRepository.findById(proveedorId)
+				.orElseThrow(() -> new ProveedorNotFoundException("El proveedor no existe"));
+		proveedorRepository.deleteById(proveedorId);
 	}
 }

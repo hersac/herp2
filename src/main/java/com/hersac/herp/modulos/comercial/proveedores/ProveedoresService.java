@@ -8,8 +8,8 @@ import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
 
 public interface ProveedoresService {
 	public List<ProveedorEntity> buscarTodos();
-	public ProveedorEntity buscarPorId(Long id);
+	public ProveedorEntity buscarPorId(Long proveedorId);
 	public ProveedorEntity crear(CrearProveedorDTO proveedor);
-	public ProveedorEntity actualizar(Long proveedorId, ActualizarProveedorDTO datisNuevos);
-	public void eliminar(Long id);
+	public ProveedorEntity actualizar(Long proveedorId, ActualizarProveedorDTO datosNuevos);
+	public void eliminar(Long proveedorId);
 }

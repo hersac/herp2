@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class CrearProveedorDTO {
 
 	@NotBlank(message = "El nombre es requerido")
-	@Positive(message = "El nombre no puede ser negativo")
+	@Size(max = 50, message = "El nombre no puede tener más de 50 caracteres")
 	private String nombre;
 
 	@NotBlank(message = "El contacto es requerido")

@@ -15,7 +15,7 @@ public class ActualizarProveedorDTO {
 
 	@NotNull(message = "El id es requerido")
 	@Positive(message = "El id no puede ser negativo")
-	private String id;
+	private Long id;
 
 	@NotBlank
 	(message = "El nombre es requerido")
