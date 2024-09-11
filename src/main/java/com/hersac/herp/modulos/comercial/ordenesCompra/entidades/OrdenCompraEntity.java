@@ -23,5 +23,4 @@ public class OrdenCompraEntity {
     private Boolean estaActiva;
     private Integer total;
     private Long proveedorId;
-
 }
