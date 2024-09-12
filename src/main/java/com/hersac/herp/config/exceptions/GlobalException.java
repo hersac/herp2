@@ -8,11 +8,11 @@ import org.springframework.http.HttpStatus;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GlobalEXception extends RuntimeException {
+public class GlobalException extends RuntimeException {
     private HttpStatus httpStatus;
     private String message;
 
-    public GlobalEXception( final String message) {
+    public GlobalException(final String message) {
         super(message);
     }
 

@@ -15,10 +15,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class CrearOrdenCompraDTO {
 
-    @NotNull(message = "El id no puede ser nulo")
-    @Positive(message = "El id debe ser positivo")
-    private Long id;
-
     @NotBlank(message = "La fecha no puede ser nula o vacía")
     @Max(value = 10, message = "La fecha no puede tener más de 10 caracteres")
     private Date fecha;
