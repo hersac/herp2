@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface ProductosService {
     public List<ProductoEntity> buscarTodos();
-    public ProductoEntity buscarPorId(Long id);
+    public ProductoEntity buscarPorId(Long productoId);
     public ProductoEntity crear(CrearProdutoDTO producto);
-    public ProductoEntity actualizar(Long productoId, ActualizarProductoDTO producto);
-    public void eliminar(Long id);
+    public ProductoEntity actualizar(Long productoId, ActualizarProductoDTO datosNuevos);
+    public void eliminar(Long productoId);
 }
