@@ -1,0 +1,46 @@
+services:
+  app:
+    build:
+      context: .  # Usa el directorio actual como contexto
+      dockerfile: Dockerfile  # Dockerfile en el directorio raíz
+    image: herp-app  # Nombre de la imagen a construir
+    container_name: herp-app-container  # Nombre del contenedor
+    restart: always  # Reinicia automáticamente el contenedor en caso de fallo
+    ports:
+      - "3000:3000"  # Mapea el puerto 3000 del host al puerto 3000 del contenedor
+    depends_on:
+      - postgres  # Asegura que PostgreSQL esté listo antes de iniciar la aplicación
+    networks:
+      - app-network  # Red personalizada para la aplicación
+    environment:
+      - SPRING_APPLICATION_NAME=herp  # Nombre de la aplicación
+      - SERVER_PORT=3000  # Puerto del servidor
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/herp  # URL de conexión JDBC (ajustada para Docker)
+      - SPRING_DATASOURCE_USERNAME=heri  # Usuario de la base de datos
+      - SPRING_DATASOURCE_PASSWORD=Heriberto1995**  # Contraseña de la base de datos
+      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver  # Controlador JDBC de PostgreSQL
+      - SPRING_JPA_DATABASE-PLATFORM=org.hibernate.dialect.PostgreSQLDialect  # Dialecto de Hibernate para PostgreSQL
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update  # Configuración de Hibernate
+
+  postgres:
+    image: postgres:16  # Imagen de PostgreSQL versión 16
+    container_name: postgres-container  # Nombre del contenedor PostgreSQL
+    restart: always  # Reinicia automáticamente en caso de fallo
+    environment:
+      - POSTGRES_DB=herp  # Nombre de la base de datos
+      - POSTGRES_USER=heri  # Usuario para la base de datos
+      - POSTGRES_PASSWORD=Heriberto1995**  # Contraseña para la base de datos
+    ports:
+      - "5434:5432"  # Mapea el puerto 5434 del host al puerto 5432 del contenedor
+    volumes:
+      - postgres-data:/var/lib/postgresql/data  # Volumen para la persistencia de datos
+    networks:
+      - app-network  # Red personalizada para la aplicación
+
+networks:
+  app-network:
+    driver: bridge  # Usa el controlador de red 'bridge' por defecto
+
+volumes:
+  postgres-data:
+    driver: local  # Volumen local para almacenar datos de PostgreSQL
