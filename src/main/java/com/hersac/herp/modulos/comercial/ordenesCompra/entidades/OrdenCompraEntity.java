@@ -21,6 +21,6 @@ public class OrdenCompraEntity {
 
     private Date fecha;
     private Boolean estaActiva;
-    private Integer total;
+    private Double total;
     private Long proveedorId;
 }

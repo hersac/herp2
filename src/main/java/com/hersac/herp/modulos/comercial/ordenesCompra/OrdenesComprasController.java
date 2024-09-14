@@ -34,9 +34,9 @@ public class OrdenesComprasController {
 
     @PutMapping("/{ordenCompraId}")
     public ResponseEntity<Void> actualizar(
-            @PathVariable Long ordenComrpaId,
+            @PathVariable Long ordenCompraId,
             @Valid @RequestBody ActualizarOrdenCompraDTO ordenCompraExistente) {
-        ordenesComprasService.actualizar(ordenComrpaId, ordenCompraExistente);
+        ordenesComprasService.actualizar(ordenCompraId, ordenCompraExistente);
         return ResponseEntity.noContent().build();
     }
 
