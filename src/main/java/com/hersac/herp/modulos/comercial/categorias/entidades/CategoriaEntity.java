@@ -1,12 +1,12 @@
 package com.hersac.herp.modulos.comercial.categorias.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.hersac.herp.modulos.comercial.productos.entidades.ProductoEntity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity(name = "categorias")
 @Data
@@ -19,4 +19,7 @@ public class CategoriaEntity {
 
     private String nombre;
     private String descripcion;
+
+    @OneToMany(mappedBy = "categoriaId")
+    private List<ProductoEntity> productos;
 }

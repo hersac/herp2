@@ -1,14 +1,14 @@
 package com.hersac.herp.modulos.comercial.ordenesCompra.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.hersac.herp.modulos.comercial.detallesOrdenesCompra.entidades.DetalleOCEntity;
+import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "ordenes_compra")
 @Data
@@ -22,5 +22,11 @@ public class OrdenCompraEntity {
     private Date fecha;
     private Boolean estaActiva;
     private Double total;
-    private Long proveedorId;
+
+    @ManyToOne
+    @JoinColumn(name = "proveedor_id")
+    private ProveedorEntity proveedorId;
+
+    @OneToMany(mappedBy = "ordenCompraId")
+    private List<DetalleOCEntity> detalles;
 }

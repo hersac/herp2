@@ -1,10 +1,12 @@
 package com.hersac.herp.modulos.comercial.productos.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.hersac.herp.modulos.comercial.categorias.entidades.CategoriaEntity;
+import com.hersac.herp.modulos.comercial.detallesOrdenesCompra.entidades.DetalleOCEntity;
+import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity(name = "productos")
 @Data
@@ -19,6 +21,15 @@ public class ProductoEntity {
     private String descripcion;
     private Double precioUnitario;
     private Integer cantidadDisponible;
-    private Long categoriaId;
-    private Long proveedorId;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoria_id")
+    private CategoriaEntity categoriaId;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "proveedor_id")
+    private ProveedorEntity proveedorId;
+
+    @OneToMany(mappedBy = "productoId")
+    private List<DetalleOCEntity> detalles;
 }
