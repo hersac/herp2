@@ -34,8 +34,8 @@ public class ProductosController {
     @PutMapping("/{productoId}")
     public ResponseEntity<Void> actualizar(
             @PathVariable Long productoId,
-            @Valid @RequestBody ActualizarProductoDTO productoExistente) {
-        productosService.actualizar(productoId, productoExistente);
+            @Valid @RequestBody ActualizarProductoDTO datosNuevos) {
+        productosService.actualizar(productoId, datosNuevos);
         return ResponseEntity.noContent().build();
     }
 
