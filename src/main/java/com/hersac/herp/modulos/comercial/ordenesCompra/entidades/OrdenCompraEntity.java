@@ -27,6 +27,7 @@ public class OrdenCompraEntity {
     @JoinColumn(name = "proveedor_id")
     private ProveedorEntity proveedorId;
 
+    // Relaciones Externas
     @OneToMany(mappedBy = "ordenCompraId")
     private List<DetalleOCEntity> detalles;
 }

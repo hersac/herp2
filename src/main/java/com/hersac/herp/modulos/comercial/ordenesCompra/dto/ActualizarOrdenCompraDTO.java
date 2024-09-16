@@ -1,5 +1,6 @@
 package com.hersac.herp.modulos.comercial.ordenesCompra.dto;
 
+import com.hersac.herp.modulos.comercial.proveedores.dto.CrearProveedorDTO;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,5 +29,5 @@ public class ActualizarOrdenCompraDTO {
 
     @NotNull(message = "El proveedor no puede ser nulo")
     @Positive(message = "El proveedor debe ser positivo")
-    private Long proveedor;
+    private CrearProveedorDTO proveedor;
 }
