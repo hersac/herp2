@@ -1,5 +1,7 @@
 package com.hersac.herp.modulos.comercial.productos.dto;
 
+import com.hersac.herp.modulos.comercial.categorias.dto.CrearCategoriaDTO;
+import com.hersac.herp.modulos.comercial.proveedores.dto.CrearProveedorDTO;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,9 +29,9 @@ public class CrearProdutoDTO {
 
     @NotNull(message = "La categoría es requerida")
     @Positive(message = "La categoría no puede ser negativa")
-    private Long categoria;
+    private CrearCategoriaDTO categoria;
 
     @NotNull(message = "El proveedor es requerido")
     @Positive(message = "El proveedor no puede ser negativo")
-    private Long proveedor;
+    private CrearProveedorDTO proveedor;
 }
