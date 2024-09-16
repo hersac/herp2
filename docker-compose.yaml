@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: Heriberto1995**
       POSTGRES_DB: herp
     ports:
-      - "5434:5432"
+      - "5436:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
     networks:
