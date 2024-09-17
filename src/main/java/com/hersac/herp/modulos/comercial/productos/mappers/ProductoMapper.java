@@ -1,26 +1,23 @@
 package com.hersac.herp.modulos.comercial.productos.mappers;
 
-import com.hersac.herp.modulos.comercial.categorias.entidades.CategoriaEntity;
+import com.hersac.herp.modulos.comercial.categorias.mappers.CategoriaMapper;
 import com.hersac.herp.modulos.comercial.productos.dto.ActualizarProductoDTO;
 import com.hersac.herp.modulos.comercial.productos.dto.CrearProdutoDTO;
 import com.hersac.herp.modulos.comercial.productos.entidades.ProductoEntity;
-import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
+import com.hersac.herp.modulos.comercial.proveedores.mappers.ProveedorMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.Named;
-import org.springframework.data.mapping.context.MappingContext;
-import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {CategoriaMapper.class, ProveedorMapper.class})
 public interface ProductoMapper {
 
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "descripcion", source = "descripcion")
     @Mapping(target = "precioUnitario", source = "precio")
     @Mapping(target = "cantidadDisponible", source = "cantidad")
-    @Mapping(target = "categoriaId", source = "categoria.id", qualifiedByName = "mapCategoria")
-    @Mapping(target = "proveedorId", source = "proveedor.id", qualifiedByName = "mapProveedor")
+    @Mapping(target = "categoriaId", source = "categoria")
+    @Mapping(target = "proveedorId", source = "proveedor")
     public ProductoEntity toEntity(CrearProdutoDTO dto);
 
     @Mapping(target = "productoId", source = "id")
@@ -28,17 +25,8 @@ public interface ProductoMapper {
     @Mapping(target = "descripcion", source = "descripcion")
     @Mapping(target = "precioUnitario", source = "precio")
     @Mapping(target = "cantidadDisponible", source = "cantidad")
-    @Mapping(target = "categoriaId", source = "categoria.id", qualifiedByName = "mapCategoria")
-    @Mapping(target = "proveedorId", source = "proveedor.id", qualifiedByName = "mapProveedor")
+    @Mapping(target = "categoriaId", source = "categoria")
+    @Mapping(target = "proveedorId", source = "proveedor")
     public ProductoEntity updateToEntity(ActualizarProductoDTO dto, @MappingTarget ProductoEntity entity);
 
-    @Named("mapCategoria")
-    default CategoriaEntity mapCategoria(Long categoriaId, MappingContext context) {
-        return categoriaRepository.findById(categoriaId).orElse(null);
-    }
-
-    @Named("mapProveedor")
-    default ProveedorEntity mapProveedor(Long proveedorId, MappingContext context) {
-        return proveedorRepository.findById(proveedorId).orElse(null);
-
-    }
+}
