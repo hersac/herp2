@@ -34,9 +34,9 @@ public class ActualizarProductoDTO {
 
     @NotNull(message = "La categoría es requerida")
     @Positive(message = "La categoría no puede ser negativa")
-    private ActualizarCategoriaDTO categoria;
+    private Long categoria;
 
     @NotNull(message = "El proveedor es requerido")
     @Positive(message = "El proveedor no puede ser negativo")
-    private ActualizarProveedorDTO proveedor;
+    private Long proveedor;
 }

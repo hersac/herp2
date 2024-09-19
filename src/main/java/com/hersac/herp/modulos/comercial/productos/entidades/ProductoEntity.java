@@ -22,6 +22,7 @@ public class ProductoEntity {
     private Double precioUnitario;
     private Integer cantidadDisponible;
 
+    // Relaciones
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_id")
     private CategoriaEntity categoriaId;
@@ -30,6 +31,7 @@ public class ProductoEntity {
     @JoinColumn(name = "proveedor_id")
     private ProveedorEntity proveedorId;
 
+    // Relaciones externas
     @OneToMany(mappedBy = "productoId")
     private List<DetalleOCEntity> detalles;
 }

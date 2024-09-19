@@ -1,14 +1,19 @@
 package com.hersac.herp.modulos.comercial.productos.servicesImpl;
 
+import com.hersac.herp.config.exceptions.CategoriaNotFoundException;
 import com.hersac.herp.config.exceptions.ProductoNotFoundException;
+import com.hersac.herp.config.exceptions.ProveedorNotFoundException;
+import com.hersac.herp.modulos.comercial.categorias.entidades.CategoriaEntity;
+import com.hersac.herp.modulos.comercial.categorias.entidades.repositorios.CategoriaRepository;
 import com.hersac.herp.modulos.comercial.productos.ProductosService;
 import com.hersac.herp.modulos.comercial.productos.dto.ActualizarProductoDTO;
 import com.hersac.herp.modulos.comercial.productos.dto.CrearProdutoDTO;
 import com.hersac.herp.modulos.comercial.productos.entidades.ProductoEntity;
 import com.hersac.herp.modulos.comercial.productos.entidades.repositorios.ProductoRepository;
 import com.hersac.herp.modulos.comercial.productos.mappers.ProductoMapper;
+import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
+import com.hersac.herp.modulos.comercial.proveedores.entidades.repositorios.ProveedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +22,12 @@ import java.util.List;
 public class ProductosServiceImpl implements ProductosService {
     @Autowired
     private ProductoRepository productosRepository;
+
+    @Autowired
+    private CategoriaRepository categoriasRepository;
+
+    @Autowired
+    private ProveedorRepository proveedoresRepository;
 
     @Autowired
     private ProductoMapper map;
@@ -35,7 +46,20 @@ public class ProductosServiceImpl implements ProductosService {
 
     @Override
     public ProductoEntity crear(CrearProdutoDTO producto) {
-        return productosRepository.save(map.toEntity(producto));
+
+        CategoriaEntity categoria = categoriasRepository
+                .findById(producto.getCategoria())
+                .orElseThrow(() -> new CategoriaNotFoundException("Esta categoría no existe"));
+
+        ProveedorEntity proveedor = proveedoresRepository
+                .findById(producto.getProveedor())
+                .orElseThrow(() -> new ProveedorNotFoundException("Este proveedor no existe"));
+
+        ProductoEntity productoNuevo = map.toEntity(producto);
+        productoNuevo.setCategoriaId(categoria);
+        productoNuevo.setProveedorId(proveedor);
+
+        return productosRepository.save(productoNuevo);
     }
 
     @Override

@@ -29,9 +29,9 @@ public class CrearProdutoDTO {
 
     @NotNull(message = "La categoría es requerida")
     @Positive(message = "La categoría no puede ser negativa")
-    private CrearCategoriaDTO categoria;
+    private Long categoria;
 
     @NotNull(message = "El proveedor es requerido")
     @Positive(message = "El proveedor no puede ser negativo")
-    private CrearProveedorDTO proveedor;
+    private Long proveedor;
 }

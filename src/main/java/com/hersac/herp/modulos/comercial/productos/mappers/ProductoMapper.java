@@ -16,8 +16,8 @@ public interface ProductoMapper {
     @Mapping(target = "descripcion", source = "descripcion")
     @Mapping(target = "precioUnitario", source = "precio")
     @Mapping(target = "cantidadDisponible", source = "cantidad")
-    @Mapping(target = "categoriaId", source = "categoria")
-    @Mapping(target = "proveedorId", source = "proveedor")
+    @Mapping(target = "categoriaId", ignore = true)
+    @Mapping(target = "proveedorId", ignore = true)
     public ProductoEntity toEntity(CrearProdutoDTO dto);
 
     @Mapping(target = "productoId", source = "id")
@@ -25,8 +25,8 @@ public interface ProductoMapper {
     @Mapping(target = "descripcion", source = "descripcion")
     @Mapping(target = "precioUnitario", source = "precio")
     @Mapping(target = "cantidadDisponible", source = "cantidad")
-    @Mapping(target = "categoriaId", source = "categoria")
-    @Mapping(target = "proveedorId", source = "proveedor")
+    @Mapping(target = "categoriaId", ignore = true)
+    @Mapping(target = "proveedorId", ignore = true)
     public ProductoEntity updateToEntity(ActualizarProductoDTO dto, @MappingTarget ProductoEntity entity);
 
 }
