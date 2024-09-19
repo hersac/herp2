@@ -19,11 +19,11 @@ public class ActualizarDetalleOCDTO {
 
     @NotNull(message = "La orden de compra no puede ser nula")
     @Positive(message = "La orden de compra debe ser positiva")
-    private ActualizarOrdenCompraDTO ordenCompra;
+    private Long ordenCompra;
 
     @NotNull(message = "El producto no puede ser nulo")
     @Positive(message = "El producto debe ser positivo")
-    private ActualizarProductoDTO producto;
+    private Long producto;
 
     @NotNull(message = "La cantidad no puede ser nula")
     @Positive(message = "La cantidad debe ser positiva")

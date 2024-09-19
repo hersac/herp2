@@ -17,6 +17,10 @@ public class DetalleOCEntity {
     @Column(name = "detalle_oc_id")
     private Long detalleOCId;
 
+    private Integer cantidad;
+    private Double precio;
+
+    // Relaciones
     @ManyToOne
     @JoinColumn(name = "orden_compra_id")
     private OrdenCompraEntity ordenCompraId;
@@ -25,6 +29,5 @@ public class DetalleOCEntity {
     @JoinColumn(name = "producto_id")
     private ProductoEntity productoId;
 
-    private Integer cantidad;
-    private Double precio;
+
 }

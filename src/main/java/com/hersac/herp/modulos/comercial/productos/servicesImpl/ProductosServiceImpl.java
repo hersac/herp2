@@ -64,9 +64,20 @@ public class ProductosServiceImpl implements ProductosService {
 
     @Override
     public ProductoEntity actualizar(Long productoId, ActualizarProductoDTO datosNuevos) {
+        CategoriaEntity categoria = categoriasRepository
+                .findById(datosNuevos.getCategoria())
+                .orElseThrow(() -> new CategoriaNotFoundException("Esta categoría no existe"));
+
+        ProveedorEntity proveedor = proveedoresRepository
+                .findById(datosNuevos.getProveedor())
+                .orElseThrow(() -> new ProveedorNotFoundException("Este proveedor no existe"));
+
         ProductoEntity productoExistente = productosRepository
                 .findById(productoId)
                 .orElseThrow(() -> new ProductoNotFoundException("Este producto no existe"));
+
+        productoExistente.setCategoriaId(categoria);
+        productoExistente.setProveedorId(proveedor);
 
         return productosRepository.save(map.updateToEntity(datosNuevos, productoExistente));
     }

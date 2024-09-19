@@ -13,13 +13,13 @@ public interface OrdenCompraMapper {
     @Mapping(target = "fecha", source = "fecha")
     @Mapping(target = "estaActiva", source = "estaActiva")
     @Mapping(target = "total", source = "total")
-    @Mapping(target = "proveedorId", source = "proveedor")
+    @Mapping(target = "proveedorId", ignore = true)
     public OrdenCompraEntity toEntity(CrearOrdenCompraDTO dto);
 
     @Mapping(target = "ordenCompraId", source = "id")
     @Mapping(target = "fecha", source = "fecha")
     @Mapping(target = "estaActiva", source = "estaActiva")
     @Mapping(target = "total", source = "total")
-    @Mapping(target = "proveedorId", source = "proveedor")
+    @Mapping(target = "proveedorId", ignore = true)
     public OrdenCompraEntity updateToEntity(ActualizarOrdenCompraDTO dto, @MappingTarget OrdenCompraEntity entity);
 }

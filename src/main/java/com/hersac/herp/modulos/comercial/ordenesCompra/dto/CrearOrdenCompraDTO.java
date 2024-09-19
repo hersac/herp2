@@ -27,5 +27,5 @@ public class CrearOrdenCompraDTO {
 
     @NotNull(message = "El proveedor no puede ser nulo")
     @Positive(message = "El proveedor debe ser positivo")
-    private CrearProveedorDTO proveedor;
+    private Long proveedor;
 }

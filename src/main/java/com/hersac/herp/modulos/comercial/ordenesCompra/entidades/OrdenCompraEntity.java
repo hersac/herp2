@@ -23,6 +23,7 @@ public class OrdenCompraEntity {
     private Boolean estaActiva;
     private Double total;
 
+    // Relaciones
     @ManyToOne
     @JoinColumn(name = "proveedor_id")
     private ProveedorEntity proveedorId;

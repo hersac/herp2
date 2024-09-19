@@ -30,5 +30,5 @@ public class ActualizarOrdenCompraDTO {
 
     @NotNull(message = "El proveedor no puede ser nulo")
     @Positive(message = "El proveedor debe ser positivo")
-    private ActualizarProveedorDTO proveedor;
+    private Long proveedor;
 }

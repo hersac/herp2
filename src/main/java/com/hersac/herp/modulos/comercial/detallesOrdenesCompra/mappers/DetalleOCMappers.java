@@ -10,18 +10,17 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface DetalleOCMappers {
 
-    @Mapping(target = "detalleOCId", ignore = true)
-    @Mapping(target = "ordenCompraId", source = "ordenCompra")
-    @Mapping(target = "productoId", source = "producto")
     @Mapping(target = "cantidad", source = "cantidad")
     @Mapping(target = "precio", source = "precio")
+    @Mapping(target = "ordenCompraId", ignore = true)
+    @Mapping(target = "productoId", ignore = true)
     public DetalleOCEntity toEntity(CrearDetalleOCDTO dto);
 
     @Mapping(target = "detalleOCId", source = "id")
-    @Mapping(target = "ordenCompraId", source = "ordenCompra")
-    @Mapping(target = "productoId", source = "producto")
     @Mapping(target = "cantidad", source = "cantidad")
     @Mapping(target = "precio", source = "precio")
+    @Mapping(target = "ordenCompraId", ignore = true)
+    @Mapping(target = "productoId", ignore = true)
     public DetalleOCEntity updateToEntity(ActualizarDetalleOCDTO dto, @MappingTarget DetalleOCEntity entity);
 
 }
