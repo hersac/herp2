@@ -1,7 +1,7 @@
 package com.hersac.herp.modulos.comercial.ordenesCompra.servicesImpl;
 
-import com.hersac.herp.config.exceptions.OrdenCompraNotFound;
-import com.hersac.herp.config.exceptions.ProveedorNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.OrdenCompraNotFound;
+import com.hersac.herp.config.exceptions.comercial.ProveedorNotFoundException;
 import com.hersac.herp.modulos.comercial.ordenesCompra.OrdenesComprasService;
 import com.hersac.herp.modulos.comercial.ordenesCompra.dto.ActualizarOrdenCompraDTO;
 import com.hersac.herp.modulos.comercial.ordenesCompra.dto.CrearOrdenCompraDTO;

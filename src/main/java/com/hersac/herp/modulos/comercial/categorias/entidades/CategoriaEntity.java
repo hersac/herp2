@@ -1,5 +1,6 @@
 package com.hersac.herp.modulos.comercial.categorias.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hersac.herp.modulos.comercial.productos.entidades.ProductoEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,5 +22,6 @@ public class CategoriaEntity {
     private String descripcion;
 
     @OneToMany(mappedBy = "categoriaId")
+    @JsonIgnore
     private List<ProductoEntity> productos;
 }

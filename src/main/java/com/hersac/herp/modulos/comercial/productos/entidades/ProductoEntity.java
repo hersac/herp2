@@ -1,5 +1,6 @@
 package com.hersac.herp.modulos.comercial.productos.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hersac.herp.modulos.comercial.categorias.entidades.CategoriaEntity;
 import com.hersac.herp.modulos.comercial.detallesOrdenesCompra.entidades.DetalleOCEntity;
 import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
@@ -33,5 +34,6 @@ public class ProductoEntity {
 
     // Relaciones externas
     @OneToMany(mappedBy = "productoId")
+    @JsonIgnore
     private List<DetalleOCEntity> detalles;
 }

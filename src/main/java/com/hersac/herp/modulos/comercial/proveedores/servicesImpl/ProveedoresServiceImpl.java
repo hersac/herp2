@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hersac.herp.config.exceptions.ProveedorNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.ProveedorNotFoundException;
 import com.hersac.herp.modulos.comercial.proveedores.ProveedoresService;
 import com.hersac.herp.modulos.comercial.proveedores.dto.ActualizarProveedorDTO;
 import com.hersac.herp.modulos.comercial.proveedores.dto.CrearProveedorDTO;

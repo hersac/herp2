@@ -1,8 +1,8 @@
 package com.hersac.herp.modulos.comercial.productos.servicesImpl;
 
-import com.hersac.herp.config.exceptions.CategoriaNotFoundException;
-import com.hersac.herp.config.exceptions.ProductoNotFoundException;
-import com.hersac.herp.config.exceptions.ProveedorNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.CategoriaNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.ProductoNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.ProveedorNotFoundException;
 import com.hersac.herp.modulos.comercial.categorias.entidades.CategoriaEntity;
 import com.hersac.herp.modulos.comercial.categorias.entidades.repositorios.CategoriaRepository;
 import com.hersac.herp.modulos.comercial.productos.ProductosService;
@@ -78,6 +78,7 @@ public class ProductosServiceImpl implements ProductosService {
 
         productoExistente.setCategoriaId(categoria);
         productoExistente.setProveedorId(proveedor);
+
 
         return productosRepository.save(map.updateToEntity(datosNuevos, productoExistente));
     }

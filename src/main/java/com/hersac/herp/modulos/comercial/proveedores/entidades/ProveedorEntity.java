@@ -1,5 +1,6 @@
 package com.hersac.herp.modulos.comercial.proveedores.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hersac.herp.modulos.comercial.ordenesCompra.entidades.OrdenCompraEntity;
 import com.hersac.herp.modulos.comercial.productos.entidades.ProductoEntity;
 import jakarta.persistence.*;
@@ -24,9 +25,12 @@ public class ProveedorEntity {
     private String telefono;
     private String email;
 
+    // Relaciones externas
     @OneToMany(mappedBy = "proveedorId")
+    @JsonIgnore
     private List<ProductoEntity> productos;
 
     @OneToMany(mappedBy = "proveedorId")
+    @JsonIgnore
     private List<OrdenCompraEntity> ordenesCompra;
 }

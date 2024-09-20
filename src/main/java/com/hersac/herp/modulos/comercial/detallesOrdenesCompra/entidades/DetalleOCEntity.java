@@ -28,6 +28,4 @@ public class DetalleOCEntity {
     @ManyToOne
     @JoinColumn(name = "producto_id")
     private ProductoEntity productoId;
-
-
 }

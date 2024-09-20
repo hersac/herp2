@@ -1,5 +1,6 @@
 package com.hersac.herp.modulos.comercial.ordenesCompra.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hersac.herp.modulos.comercial.detallesOrdenesCompra.entidades.DetalleOCEntity;
 import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
 import jakarta.persistence.*;
@@ -30,5 +31,6 @@ public class OrdenCompraEntity {
 
     // Relaciones Externas
     @OneToMany(mappedBy = "ordenCompraId")
+    @JsonIgnore
     private List<DetalleOCEntity> detalles;
 }

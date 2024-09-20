@@ -1,6 +1,6 @@
 package com.hersac.herp.modulos.comercial.categorias.servicesImpl;
 
-import com.hersac.herp.config.exceptions.CategoriaNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.CategoriaNotFoundException;
 import com.hersac.herp.modulos.comercial.categorias.CategoriasService;
 import com.hersac.herp.modulos.comercial.categorias.dto.ActualizarCategoriaDTO;
 import com.hersac.herp.modulos.comercial.categorias.dto.CrearCategoriaDTO;

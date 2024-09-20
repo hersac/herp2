@@ -1,5 +1,6 @@
-package com.hersac.herp.config.exceptions;
+package com.hersac.herp.config.exceptions.comercial;
 
+import com.hersac.herp.config.exceptions.GlobalException;
 import org.springframework.http.HttpStatus;
 
 public class CategoriaNotFoundException extends GlobalException {

@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: heri
       POSTGRES_PASSWORD: Heriberto1995**
-      POSTGRES_DB: herp
+      POSTGRES_DB: postgres
     ports:
       - "5436:5432"
     volumes:

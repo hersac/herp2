@@ -1,8 +1,8 @@
 package com.hersac.herp.modulos.comercial.detallesOrdenesCompra.servicesImpl;
 
-import com.hersac.herp.config.exceptions.DetalleOCNotFoundException;
-import com.hersac.herp.config.exceptions.OrdenCompraNotFound;
-import com.hersac.herp.config.exceptions.ProductoNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.DetalleOCNotFoundException;
+import com.hersac.herp.config.exceptions.comercial.OrdenCompraNotFound;
+import com.hersac.herp.config.exceptions.comercial.ProductoNotFoundException;
 import com.hersac.herp.modulos.comercial.detallesOrdenesCompra.DetallesOCService;
 import com.hersac.herp.modulos.comercial.detallesOrdenesCompra.dto.ActualizarDetalleOCDTO;
 import com.hersac.herp.modulos.comercial.detallesOrdenesCompra.dto.CrearDetalleOCDTO;
