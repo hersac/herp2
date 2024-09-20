@@ -10,10 +10,12 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface OrdenCompraMapper {
 
+    @Mapping(target = "ordenCompraId", ignore = true)
     @Mapping(target = "fecha", source = "fecha")
     @Mapping(target = "estaActiva", source = "estaActiva")
     @Mapping(target = "total", source = "total")
     @Mapping(target = "proveedorId", ignore = true)
+    @Mapping(target = "detalles", ignore = true)
     public OrdenCompraEntity toEntity(CrearOrdenCompraDTO dto);
 
     @Mapping(target = "ordenCompraId", source = "id")
@@ -21,5 +23,6 @@ public interface OrdenCompraMapper {
     @Mapping(target = "estaActiva", source = "estaActiva")
     @Mapping(target = "total", source = "total")
     @Mapping(target = "proveedorId", ignore = true)
+    @Mapping(target = "detalles", ignore = true)
     public OrdenCompraEntity updateToEntity(ActualizarOrdenCompraDTO dto, @MappingTarget OrdenCompraEntity entity);
 }

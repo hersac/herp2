@@ -13,10 +13,12 @@ public interface CategoriaMapper {
     @Mapping(target = "categoriaId", ignore = true)
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "descripcion", source = "descripcion")
+    @Mapping(target = "productos", ignore = true)
     public CategoriaEntity toEntity(CrearCategoriaDTO dto);
 
     @Mapping(target = "categoriaId", source = "id")
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "descripcion", source = "descripcion")
+    @Mapping(target = "productos", ignore = true)
     public CategoriaEntity updateToEntity(ActualizarCategoriaDTO dto, @MappingTarget CategoriaEntity entity);
 }

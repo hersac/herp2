@@ -10,6 +10,7 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface TransaccionMapper {
 
+    @Mapping(target = "transaccionId", ignore = true)
     @Mapping(target = "fecha", source = "fecha")
     @Mapping(target = "descripcion", source = "descripcion")
     @Mapping(target = "monto", source = "monto")

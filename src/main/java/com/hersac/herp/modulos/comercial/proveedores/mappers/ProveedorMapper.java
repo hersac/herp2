@@ -11,11 +11,14 @@ import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
 @Mapper(componentModel = "spring")
 public interface ProveedorMapper {
 
+	@Mapping(target = "proveedorId", ignore = true)
 	@Mapping(target = "nombre", source = "nombre")
 	@Mapping(target = "contacto", source = "contacto")
 	@Mapping(target = "direccion", source = "direccion")
 	@Mapping(target = "telefono", source = "telefono")
 	@Mapping(target = "email", source = "email")
+	@Mapping(target = "productos", ignore = true)
+	@Mapping(target = "ordenesCompra", ignore = true)
 	public ProveedorEntity toEntity(CrearProveedorDTO dto);
 
 	@Mapping(target = "proveedorId", source = "id")
@@ -24,5 +27,7 @@ public interface ProveedorMapper {
 	@Mapping(target = "direccion", source = "direccion")
 	@Mapping(target = "telefono", source = "telefono")
 	@Mapping(target = "email", source = "email")
+	@Mapping(target = "productos", ignore = true)
+	@Mapping(target = "ordenesCompra", ignore = true)
 	public ProveedorEntity updateToEntity(ActualizarProveedorDTO dto, @MappingTarget ProveedorEntity entity);
 }

@@ -12,12 +12,14 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring", uses = {CategoriaMapper.class, ProveedorMapper.class})
 public interface ProductoMapper {
 
+    @Mapping(target = "productoId", ignore = true)
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "descripcion", source = "descripcion")
     @Mapping(target = "precioUnitario", source = "precio")
     @Mapping(target = "cantidadDisponible", source = "cantidad")
     @Mapping(target = "categoriaId", ignore = true)
     @Mapping(target = "proveedorId", ignore = true)
+    @Mapping(target = "detalles", ignore = true)
     public ProductoEntity toEntity(CrearProdutoDTO dto);
 
     @Mapping(target = "productoId", source = "id")
@@ -27,6 +29,7 @@ public interface ProductoMapper {
     @Mapping(target = "cantidadDisponible", source = "cantidad")
     @Mapping(target = "categoriaId", ignore = true)
     @Mapping(target = "proveedorId", ignore = true)
+    @Mapping(target = "detalles", ignore = true)
     public ProductoEntity updateToEntity(ActualizarProductoDTO dto, @MappingTarget ProductoEntity entity);
 
 }

@@ -10,6 +10,7 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface DetalleOCMappers {
 
+    @Mapping(target = "detalleOCId", ignore = true)
     @Mapping(target = "cantidad", source = "cantidad")
     @Mapping(target = "precio", source = "precio")
     @Mapping(target = "ordenCompraId", ignore = true)

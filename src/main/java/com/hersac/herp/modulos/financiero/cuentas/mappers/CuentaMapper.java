@@ -10,6 +10,7 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface CuentaMapper {
 
+    @Mapping(target = "cuentaId", ignore = true)
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "saldo", source = "saldo")
     @Mapping(target = "tipoCuentaId", ignore = true)
