@@ -4,7 +4,6 @@ import com.hersac.herp.modulos.financiero.cuentas.dto.ActualizarCuentaDTO;
 import com.hersac.herp.modulos.financiero.cuentas.dto.CrearCuentaDTO;
 import com.hersac.herp.modulos.financiero.cuentas.entidades.CuentaEntity;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

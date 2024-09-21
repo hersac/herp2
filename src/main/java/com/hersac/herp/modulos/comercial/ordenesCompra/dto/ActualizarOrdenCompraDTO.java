@@ -1,7 +1,5 @@
 package com.hersac.herp.modulos.comercial.ordenesCompra.dto;
 
-import com.hersac.herp.modulos.comercial.proveedores.dto.ActualizarProveedorDTO;
-import com.hersac.herp.modulos.comercial.proveedores.dto.CrearProveedorDTO;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

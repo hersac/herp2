@@ -1,6 +1,5 @@
 package com.hersac.herp.modulos.financiero.libroDiario.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hersac.herp.modulos.financiero.cuentas.entidades.CuentaEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +23,7 @@ public class LibroDiarioEntity {
     private Double montoDebe;
     private Double montoHaber;
 
-    @OneToMany
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cuenta_id")
     private CuentaEntity cuentaId;
 }

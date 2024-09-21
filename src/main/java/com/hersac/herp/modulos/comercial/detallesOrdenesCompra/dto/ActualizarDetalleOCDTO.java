@@ -1,7 +1,5 @@
 package com.hersac.herp.modulos.comercial.detallesOrdenesCompra.dto;
 
-import com.hersac.herp.modulos.comercial.ordenesCompra.dto.ActualizarOrdenCompraDTO;
-import com.hersac.herp.modulos.comercial.productos.dto.ActualizarProductoDTO;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;

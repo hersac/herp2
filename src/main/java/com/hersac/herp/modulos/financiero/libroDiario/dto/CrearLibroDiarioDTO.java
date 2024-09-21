@@ -14,11 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ActualizarLibroDiarioDTO {
-
-    @NotNull(message = "El libro diario ID no puede ser nulo")
-    @Positive(message = "El libro diario ID debe ser un número positivo")
-    private Long id;
+public class CrearLibroDiarioDTO {
 
     @NotNull(message = "La fecha no puede ser nula")
     @PastOrPresent(message = "La fecha debe ser pasada o presente")

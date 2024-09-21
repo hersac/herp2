@@ -1,6 +1,5 @@
 package com.hersac.herp.modulos.financiero.cuentas.entidades;
 
-import com.hersac.herp.modulos.comercial.proveedores.entidades.ProveedorEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

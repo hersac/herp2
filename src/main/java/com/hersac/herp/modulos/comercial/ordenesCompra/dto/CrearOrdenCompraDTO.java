@@ -1,6 +1,5 @@
 package com.hersac.herp.modulos.comercial.ordenesCompra.dto;
 
-import com.hersac.herp.modulos.comercial.proveedores.dto.CrearProveedorDTO;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
