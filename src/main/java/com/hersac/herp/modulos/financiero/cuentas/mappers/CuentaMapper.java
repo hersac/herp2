@@ -20,5 +20,5 @@ public interface CuentaMapper {
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "saldo", source = "saldo")
     @Mapping(target = "tipoCuentaId", ignore = true)
-    public CuentaEntity updateToEntity(ActualizarCuentaDTO dto, @MappingTarget CuentaEntity entity);
+    public CuentaEntity updateToEntity(ActualizarCuentaDTO datosNuevos, @MappingTarget CuentaEntity entity);
 }

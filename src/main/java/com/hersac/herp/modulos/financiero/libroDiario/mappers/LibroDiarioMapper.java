@@ -25,5 +25,5 @@ public interface LibroDiarioMapper {
     @Mapping(target = "montoDebe", source = "montoDebe")
     @Mapping(target = "montoHaber", source = "montoHaber")
     @Mapping(target = "cuentaId", ignore = true)
-    public LibroDiarioEntity updateToEntity(ActualizarLibroDiarioDTO dto, @MappingTarget LibroDiarioEntity entity);
+    public LibroDiarioEntity updateToEntity(ActualizarLibroDiarioDTO datosNuevos, @MappingTarget LibroDiarioEntity entity);
 }

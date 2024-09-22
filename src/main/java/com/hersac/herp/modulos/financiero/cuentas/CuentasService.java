@@ -10,5 +10,5 @@ public interface CuentasService {
     public List<CuentaEntity> buscarTodos();
     public CuentaEntity buscarPorId(Long cuentaId);
     public CuentaEntity crear(CrearCuentaDTO dto);
-    public CuentaEntity actualizar(Long cuentaId, ActualizarCuentaDTO nuevosDatos);
+    public CuentaEntity actualizar(Long cuentaId, ActualizarCuentaDTO datosNuevos);
 }

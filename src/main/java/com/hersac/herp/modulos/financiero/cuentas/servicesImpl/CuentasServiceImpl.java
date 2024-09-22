@@ -52,11 +52,11 @@ public class CuentasServiceImpl implements CuentasService {
     }
 
     @Override
-    public CuentaEntity actualizar(Long cuentaId, ActualizarCuentaDTO cuenta) {
+    public CuentaEntity actualizar(Long cuentaId, ActualizarCuentaDTO datosNuevos) {
 
         CuentaEntity cuentaExistente = cuentaRepository.findById(cuentaId)
                 .orElseThrow(() -> new CuentaNotFoundException("Cuenta no encontrada"));
 
-        return cuentaRepository.save(cuentaMapper.updateToEntity(cuenta, cuentaExistente));
+        return cuentaRepository.save(cuentaMapper.updateToEntity(datosNuevos, cuentaExistente));
     }
 }

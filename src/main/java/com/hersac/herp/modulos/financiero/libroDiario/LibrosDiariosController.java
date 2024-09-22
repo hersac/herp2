@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,15 +39,15 @@ public class LibrosDiariosController {
     }
 
     @GetMapping("/{libroDiarioId}")
-    public ResponseEntity<LibroDiarioEntity> buscarPorId(@RequestParam Long libroDiarioId) {
+    public ResponseEntity<LibroDiarioEntity> buscarPorId(@PathVariable Long libroDiarioId) {
         return ResponseEntity.ok(librosDiariosService.buscarPorId(libroDiarioId));
     }
     
     @PutMapping("/{libroDiarioId}")
     public ResponseEntity<Void> actualizar(
         @PathVariable Long libroDiarioId,
-        @Valid @RequestParam ActualizarLibroDiarioDTO nuevosDatos) {
-        librosDiariosService.actualizar(libroDiarioId, nuevosDatos);
+        @Valid @RequestBody ActualizarLibroDiarioDTO datosNuevos) {
+        librosDiariosService.actualizar(libroDiarioId, datosNuevos);
         return ResponseEntity.ok().build();
     }
 

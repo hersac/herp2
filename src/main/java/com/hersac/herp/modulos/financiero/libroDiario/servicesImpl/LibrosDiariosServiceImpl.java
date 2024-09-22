@@ -50,18 +50,18 @@ public class LibrosDiariosServiceImpl implements LibrosDiariosService {
     }
 
     @Override
-    public LibroDiarioEntity actualizar(Long libroDiarioId, ActualizarLibroDiarioDTO nuevosDatos){
+    public LibroDiarioEntity actualizar(Long libroDiarioId, ActualizarLibroDiarioDTO datosNuevos){
         CuentaEntity cuenta = cuentaRepository
-        .findById(nuevosDatos.getCuenta())
+        .findById(datosNuevos.getCuenta())
         .orElseThrow(() -> new CuentaNotFoundException("No se encontro la cuenta"));
 
         LibroDiarioEntity libroDiario = libroDiarioRepository
         .findById(libroDiarioId)
-        .orElseThrow(()-> new LibroDiarioNotFoundException("No se encontro el libro diario"));
+        .orElseThrow(() -> new LibroDiarioNotFoundException("No se encontro el libro diario"));
 
         libroDiario.setCuentaId(cuenta);
 
-        return libroDiarioRepository.save(libroDiarioMapper.updateToEntity(nuevosDatos, libroDiario));
+        return libroDiarioRepository.save(libroDiarioMapper.updateToEntity(datosNuevos, libroDiario));
     }
 
     @Override

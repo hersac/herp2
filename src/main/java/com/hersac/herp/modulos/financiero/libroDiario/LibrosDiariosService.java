@@ -10,6 +10,6 @@ public interface LibrosDiariosService {
     public List<LibroDiarioEntity> buscarTodos();
     public LibroDiarioEntity buscarPorId(Long libroDiarioId);
     public LibroDiarioEntity crear(CrearLibroDiarioDTO dto);
-    public LibroDiarioEntity actualizar(Long libroDiarioId, ActualizarLibroDiarioDTO nuevosDatos);
+    public LibroDiarioEntity actualizar(Long libroDiarioId, ActualizarLibroDiarioDTO datosNuevos);
     public void eliminar(Long libroDiarioId);
 }
