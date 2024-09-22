@@ -22,8 +22,4 @@ public class ActualizarCuentaDTO {
 
     @NotNull(message = "El saldo de la cuenta no puede estar vacío")
     private Double saldo;
-
-    @NotNull(message = "El tipo de cuenta no puede estar vacío")
-    @Positive(message = "El tipo de cuenta debe ser un número positivo")
-    private Long tipoCuenta;
 }

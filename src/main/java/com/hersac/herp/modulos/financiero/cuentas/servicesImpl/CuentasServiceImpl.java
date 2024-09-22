@@ -40,27 +40,23 @@ public class CuentasServiceImpl implements CuentasService {
 
     @Override
     public CuentaEntity crear(CrearCuentaDTO dto) {
-        return cuentaRepository.save(cuentaMapper.toEntity(dto));
+
+        TipoCuentaEntity tipoCuenta = tipoCuentaRepository
+                .findById(dto.getTipoCuenta())
+                .orElseThrow(() -> new TipoCuentaNotFoundException("Tipo de cuenta no encontrado"));
+        
+        CuentaEntity cuenta = cuentaMapper.toEntity(dto);
+        cuenta.setTipoCuentaId(tipoCuenta);
+
+        return cuentaRepository.save(cuenta);
     }
 
     @Override
     public CuentaEntity actualizar(Long cuentaId, ActualizarCuentaDTO cuenta) {
-        TipoCuentaEntity tipoCuenta = tipoCuentaRepository
-                .findById(cuenta.getTipoCuenta())
-                .orElseThrow(() -> new TipoCuentaNotFoundException("Tipo de cuenta no encontrado"));
 
         CuentaEntity cuentaExistente = cuentaRepository.findById(cuentaId)
                 .orElseThrow(() -> new CuentaNotFoundException("Cuenta no encontrada"));
-        cuentaExistente.setTipoCuentaId(tipoCuenta);
 
         return cuentaRepository.save(cuentaMapper.updateToEntity(cuenta, cuentaExistente));
-    }
-
-    @Override
-    public void eliminar(Long cuentaId) {
-        cuentaRepository
-                .findById(cuentaId)
-                .orElseThrow(() -> new CuentaNotFoundException("Cuenta no encontrada"));
-        cuentaRepository.deleteById(cuentaId);
     }
 }

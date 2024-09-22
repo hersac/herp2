@@ -38,10 +38,4 @@ public class CuentasController {
         cuentasService.actualizar(cuentaId, datosNuevos);
         return ResponseEntity.noContent().build();
     }
-
-    @DeleteMapping("/{cuentaId}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long cuentaId) {
-        cuentasService.eliminar(cuentaId);
-        return ResponseEntity.noContent().build();
-    }
 }

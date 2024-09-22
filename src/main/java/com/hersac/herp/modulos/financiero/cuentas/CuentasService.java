@@ -11,5 +11,4 @@ public interface CuentasService {
     public CuentaEntity buscarPorId(Long cuentaId);
     public CuentaEntity crear(CrearCuentaDTO dto);
     public CuentaEntity actualizar(Long cuentaId, ActualizarCuentaDTO nuevosDatos);
-    public void eliminar(Long cuentaId);
 }
