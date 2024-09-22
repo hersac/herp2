@@ -46,16 +46,28 @@ public class TransaccionesServiceImpl implements TransaccionesService {
 
     @Override
     public TransaccionEntity crear(CrearTransaccionesDTO dto){
-        return transaccionRepository.save(transaccionMapper.toEntity(dto));
+
+        TipoTransaccionEntity tipoTransaccion = tipoTransaccionRepository
+                .findById(dto.getTipoTransaccion())
+                .orElseThrow(() -> new TipoTransaccionNotFoundException("Tipo de transaccion no encontrada"));
+
+        CuentaEntity cuenta = cuentaRepository.findById(dto.getCuenta())
+                .orElseThrow(() -> new CuentaNotFoundException("Cuenta no encontrada"));
+
+        TransaccionEntity transaccion = transaccionMapper.toEntity(dto);
+        transaccion.setTipoTransaccionId(tipoTransaccion);
+        transaccion.setCuentaId(cuenta);
+
+        return transaccionRepository.save(transaccion);
     }
 
     @Override
-    public TransaccionEntity actualizar(Long transaccionId, ActualizarTransaccionesDTO nuevosDatos){
+    public TransaccionEntity actualizar(Long transaccionId, ActualizarTransaccionesDTO datosNuevos){
         TipoTransaccionEntity tipoTransaccion = tipoTransaccionRepository
-                .findById(nuevosDatos.getTipoTransaccion())
+                .findById(datosNuevos.getTipoTransaccion())
                 .orElseThrow(() -> new TipoTransaccionNotFoundException("Tipo de transaccion no encontrada"));
 
-        CuentaEntity cuenta = cuentaRepository.findById(nuevosDatos.getCuenta())
+        CuentaEntity cuenta = cuentaRepository.findById(datosNuevos.getCuenta())
                 .orElseThrow(() -> new CuentaNotFoundException("Cuenta no encontrada"));
 
         TransaccionEntity transaccion = transaccionRepository
@@ -65,7 +77,7 @@ public class TransaccionesServiceImpl implements TransaccionesService {
         transaccion.setTipoTransaccionId(tipoTransaccion);
         transaccion.setCuentaId(cuenta);
 
-        return transaccionRepository.save(transaccionMapper.updateToEntity(nuevosDatos, transaccion));
+        return transaccionRepository.save(transaccionMapper.updateToEntity(datosNuevos, transaccion));
     }
 
     @Override

@@ -34,8 +34,8 @@ public class TransaccionesController {
     @PutMapping("/{transaccionId}")
     public ResponseEntity<Void> buscarPorId(
             @PathVariable Long transaccionId,
-            @Valid @RequestBody ActualizarTransaccionesDTO nuevosDatos){
-        transaccionesService.actualizar(transaccionId, nuevosDatos);
+            @Valid @RequestBody ActualizarTransaccionesDTO datosNuevos){
+        transaccionesService.actualizar(transaccionId, datosNuevos);
         return ResponseEntity.noContent().build();
     }
 

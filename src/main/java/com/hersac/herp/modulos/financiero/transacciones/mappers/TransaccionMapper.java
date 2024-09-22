@@ -24,5 +24,5 @@ public interface TransaccionMapper {
     @Mapping(target = "monto", source = "monto")
     @Mapping(target = "tipoTransaccionId", ignore = true)
     @Mapping(target = "cuentaId", ignore = true)
-    public TransaccionEntity updateToEntity(ActualizarTransaccionesDTO dto, @MappingTarget TransaccionEntity entity);
+    public TransaccionEntity updateToEntity(ActualizarTransaccionesDTO datosNuevos, @MappingTarget TransaccionEntity entity);
 }

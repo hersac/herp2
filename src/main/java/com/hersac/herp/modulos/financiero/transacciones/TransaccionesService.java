@@ -10,6 +10,6 @@ public interface TransaccionesService {
     public List<TransaccionEntity> buscarTodos();
     public TransaccionEntity buscarPorId(Long transaccionId);
     public TransaccionEntity crear(CrearTransaccionesDTO dto);
-    public TransaccionEntity actualizar(Long transaccionId, ActualizarTransaccionesDTO transaccion);
+    public TransaccionEntity actualizar(Long transaccionId, ActualizarTransaccionesDTO datosNuevos);
     public void eliminar(Long transaccionId);
 }

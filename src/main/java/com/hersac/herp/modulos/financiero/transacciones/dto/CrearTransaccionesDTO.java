@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class CrearTransaccionesDTO {
 
+    public Long getTipo;
     @NotNull(message = "La fecha no puede ser nula")
     @PastOrPresent(message = "La fecha debe ser pasada o presente")
     private Date fecha;
