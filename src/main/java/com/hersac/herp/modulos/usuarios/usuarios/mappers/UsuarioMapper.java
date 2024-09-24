@@ -13,14 +13,14 @@ public interface UsuarioMapper {
     @Mapping(target = "usuarioId", ignore = true)
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "email", source = "email")
-    @Mapping(target = "contraseña", source = "contraseña")
+    @Mapping(target = "contrasena", source = "contrasena")
     @Mapping(target = "rolId", ignore = true)
     public UsuarioEntity toEntity(CrearUsuarioDTO dto);
 
     @Mapping(target = "usuarioId", source = "id")
     @Mapping(target = "nombre", source = "nombre")
     @Mapping(target = "email", source = "email")
-    @Mapping(target = "contraseña", source = "contraseña")
+    @Mapping(target = "contrasena", source = "contrasena")
     @Mapping(target = "rolId", ignore = true)
     public UsuarioEntity updateToEntity(ActualizarUsuarioDTO datosNuevos, @MappingTarget UsuarioEntity entity);
 }

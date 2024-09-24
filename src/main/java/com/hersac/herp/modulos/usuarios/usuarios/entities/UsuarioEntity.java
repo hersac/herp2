@@ -18,7 +18,7 @@ public class UsuarioEntity {
 
     private String nombre;
     private String email;
-    private String constraseña;
+    private String contrasena;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "rol_id")
