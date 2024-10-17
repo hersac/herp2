@@ -8,3 +8,4 @@ public class PermisoNotFoundException extends GlobalException {
         super(HttpStatus.BAD_REQUEST, message);
     }
 }
+

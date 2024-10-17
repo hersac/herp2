@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface RolesServices {
     public List<RolEntity> buscarTodos();
-    public RolEntity buscarPorId(Long id);
+    public RolEntity buscarPorId(Long rolId);
     public RolEntity crear(CrearRolDTO dto);
     public RolEntity actualizar(Long rolId, ActualizarRolDTO datosNuevos);
     public void eliminar(Long rolId);
