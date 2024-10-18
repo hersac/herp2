@@ -20,20 +20,24 @@ public class RolesServicesImpl implements RolesServices {
     @Autowired
     private RolMapper rolMapper;
 
+    @Override
     public List<RolEntity> buscarTodos(){
         return rolRepository.findAll();
     }
 
+    @Override
     public RolEntity buscarPorId(Long rolId) {
         return rolRepository
                 .findById(rolId)
                 .orElseThrow(() -> new RolNotFoundException("Rol no encontrado"));
     }
 
+    @Override
     public RolEntity crear(CrearRolDTO dto) {
         return rolRepository.save(rolMapper.toEntity(dto));
     }
 
+    @Override
     public RolEntity actualizar(Long rolId, ActualizarRolDTO datosNuevos) {
         RolEntity rol = rolRepository
                 .findById(rolId)
@@ -41,6 +45,7 @@ public class RolesServicesImpl implements RolesServices {
         return rolRepository.save(rolMapper.updateToEntity(datosNuevos, rol));
     }
 
+    @Override
     public void eliminar(Long rolId) {
         rolRepository
                 .findById(rolId)

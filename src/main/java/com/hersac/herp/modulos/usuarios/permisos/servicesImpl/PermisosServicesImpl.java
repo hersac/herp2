@@ -21,28 +21,34 @@ public class PermisosServicesImpl implements PermisosServices {
 	@Autowired
 	private PermisoMapper permisoMapper;
 
+	@Override
 	public List<PermisoEntity> buscarTodos() {
 		return permisoRepository.findAll();
 	}
+
+	@Override
 	public PermisoEntity buscarPorId(Long permisoId) {
 		return permisoRepository
 				.findById(permisoId)
 				.orElseThrow(()-> new PermisoNotFoundException("Permiso no encontrado"));
 	}
+
+	@Override
 	public PermisoEntity crear(CrearPermisoDTO dto) {
 		return permisoRepository.save(permisoMapper.toEntity(dto));
 	}
 
+	@Override
 	public PermisoEntity actualizar(Long permisoId, ActualizarPermisoDTO datosNuevos) {
 		PermisoEntity permiso = permisoRepository.findById(permisoId)
 				.orElseThrow(()-> new PermisoNotFoundException("Permiso no encontrado"));
 		return permisoRepository.save(permisoMapper.updateToEntity(datosNuevos, permiso));
 	}
 
+	@Override
 	public void eliminar(Long permisoId) {
 		permisoRepository.findById(permisoId)
 				.orElseThrow(()-> new PermisoNotFoundException("Permiso no encontrado"));
 		permisoRepository.deleteById(permisoId);
 	}
-
 }

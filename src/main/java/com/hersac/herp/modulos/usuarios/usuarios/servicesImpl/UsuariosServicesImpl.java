@@ -20,26 +20,31 @@ public class UsuariosServicesImpl implements UsuariosServices {
     @Autowired
     private UsuarioMapper usuarioMapper;
 
+    @Override
     public List<UsuarioEntity> buscarTodos() {
         return usuarioRepository.findAll();
     }
 
+    @Override
     public UsuarioEntity buscarPorId(Long usuarioId){
         return usuarioRepository
                 .findById(usuarioId)
                 .orElseThrow(() -> new UsuarioNotFoundException("Este usuario no existe"));
     }
 
+    @Override
     public UsuarioEntity crear(CrearUsuarioDTO dto){
         return usuarioRepository.save(usuarioMapper.toEntity(dto));
     }
 
+    @Override
     public UsuarioEntity actualizar(Long usuarioId, ActualizarUsuarioDTO datosNuevos){
         UsuarioEntity usuarioExistente = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new UsuarioNotFoundException("Este usuario no existe"));
         return usuarioRepository.save(usuarioMapper.updateToEntity(datosNuevos, usuarioExistente));
     }
 
+    @Override
     public void eliminar(Long usuarioId){
         usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new UsuarioNotFoundException("Este usuario no existe"));
