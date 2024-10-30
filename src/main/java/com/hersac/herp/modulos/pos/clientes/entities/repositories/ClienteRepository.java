@@ -1,4 +1,9 @@
 package com.hersac.herp.modulos.pos.clientes.entities.repositories;
 
-public interface ClienteRepository {
+import com.hersac.herp.modulos.pos.clientes.entities.ClienteEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
 }

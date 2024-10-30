@@ -17,8 +17,11 @@ public class VentaEntity {
     private Long ventaId;
 
     private String fechaVenta;
-    private UsuarioEntity usuarioId;
     private Double totalVenta;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuarioId")
+    private UsuarioEntity usuarioId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "clienteId")
