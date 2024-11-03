@@ -18,4 +18,8 @@ public class ClienteEntity {
     private Long clienteId;
 
     private String nombre;
+    private String apellido;
+    private String direccion;
+    private String telefono;
+    private String email;
 }

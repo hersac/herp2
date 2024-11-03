@@ -1,4 +1,4 @@
-package com.hersac.herp.config.autoruns.comercial;
+package com.hersac.herp.config.autoruns.financiero.comercial;
 
 import java.util.Arrays;
 import java.util.List;
