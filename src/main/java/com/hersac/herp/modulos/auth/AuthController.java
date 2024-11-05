@@ -1,5 +1,6 @@
 package com.hersac.herp.modulos.auth;
 
+import com.hersac.herp.config.security.model.TokenResponse;
 import com.hersac.herp.modulos.auth.entity.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest loginRequest) {
 
         return ResponseEntity.ok(authService.authenticate(loginRequest));
     }

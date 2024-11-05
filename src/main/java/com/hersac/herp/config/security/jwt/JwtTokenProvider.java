@@ -1,5 +1,6 @@
 package com.hersac.herp.config.security.jwt;
 
+import com.hersac.herp.config.security.model.TokenResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -19,9 +20,11 @@ public class JwtTokenProvider {
     @Value("${jwt.expiration}")
     private long EXPIRATION_TIME;
 
-    public String generateToken(String username) {
+    public TokenResponse generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, username);
+        TokenResponse tokenResponse = new TokenResponse();
+        tokenResponse.setToken(createToken(claims, username));
+        return tokenResponse;
     }
 
     public String createToken(Map<String, Object> claims, String subject) {
