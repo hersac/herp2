@@ -27,7 +27,12 @@ public class AuthService {
 
     public TokenResponse authenticate(LoginRequest loginRequest) {
         UsuarioEntity usuario = usuarioRepository.findByEmail(loginRequest.getEmail());
+        /*
         if (usuario == null && !passwordEncoder.matches(loginRequest.getContrasena(), usuario.getContrasena())) {
+            throw new CredencialesInvalidasException("Credenciales inválidas");
+        }
+        */
+        if(usuario == null && !loginRequest.getContrasena().equals(usuario.getContrasena())){
             throw new CredencialesInvalidasException("Credenciales inválidas");
         }
         return jwtTokenProvider.generateToken(loginRequest.getEmail());
