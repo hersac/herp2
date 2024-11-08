@@ -25,7 +25,5 @@ public class ActualizarUsuarioDTO {
     @Size(min = 8, max = 50, message = "La contraseña debe tener entre 8 y 50 caracteres")
     private String contrasena;
 
-    @NotNull(message = "El rol no puede ser nulo")
-    @Positive(message = "El rol debe ser positivo")
     private Long rol;
 }
