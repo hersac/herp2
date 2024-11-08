@@ -1,4 +1,4 @@
-package com.hersac.herp.config.autoruns.financiero.comercial;
+package com.hersac.herp.config.autoruns.financiero;
 
 import com.hersac.herp.modulos.financiero.transacciones.entidades.TipoTransaccionEntity;
 import com.hersac.herp.modulos.financiero.transacciones.entidades.repositories.TipoTransaccionRepository;

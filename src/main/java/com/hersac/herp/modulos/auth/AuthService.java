@@ -48,7 +48,7 @@ public class AuthService {
     }
 
     public UsuarioEntity register(CrearUsuarioDTO usuario) {
-        final Long ROL_DEFAULT = 1L;
+        final Long ROL_DEFAULT = 2L;
         usuario.setRol(ROL_DEFAULT);
 
         return usuariosServices.crear(usuario);
