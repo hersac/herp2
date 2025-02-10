@@ -6,7 +6,7 @@ import com.hersac.herp.modulos.nomina.cargos.dto.ActualizarCargoDTO;
 import com.hersac.herp.modulos.nomina.cargos.dto.CrearCargoDTO;
 import com.hersac.herp.modulos.nomina.cargos.entidades.CargoEntity;
 import com.hersac.herp.modulos.nomina.cargos.entidades.repositories.CargoRepository;
-import com.hersac.herp.modulos.nomina.cargos.mappers.CargoMappper;
+import com.hersac.herp.modulos.nomina.cargos.mappers.CargoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class CargosServicesImpl implements CargosServices {
     private CargoRepository cargoRepository;
 
     @Autowired
-    private CargoMappper cargoMappper;
+    private CargoMapper cargoMapper;
 
     public List<CargoEntity> buscarTodos() {
         return cargoRepository.findAll();
@@ -31,13 +31,13 @@ public class CargosServicesImpl implements CargosServices {
     }
 
     public CargoEntity crear(CrearCargoDTO dto){
-        return cargoRepository.save(cargoMappper.toEntity(dto));
+        return cargoRepository.save(cargoMapper.toEntity(dto));
     }
 
     public CargoEntity actualizar(Long cargoId, ActualizarCargoDTO datosNuevos){
         CargoEntity cargo = cargoRepository.findById(cargoId)
                 .orElseThrow(() -> new CargoNotFoundException("Cargo no encontrado"));
-        return cargoRepository.save(cargoMappper.updateToEntity(datosNuevos, cargo));
+        return cargoRepository.save(cargoMapper.updateToEntity(datosNuevos, cargo));
     }
 
     public void eliminar(Long cargoId){

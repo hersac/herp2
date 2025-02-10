@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
-public interface CargoMappper {
+public interface CargoMapper {
 
     @Mapping(target = "cargoId", ignore = true)
     @Mapping(target = "nombre", source = "nombre")

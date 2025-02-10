@@ -4,7 +4,6 @@ import com.hersac.herp.config.exceptions.nomina.CargoNotFoundException;
 import com.hersac.herp.config.exceptions.nomina.EmpleadoNotFoundException;
 import com.hersac.herp.modulos.nomina.cargos.entidades.CargoEntity;
 import com.hersac.herp.modulos.nomina.cargos.entidades.repositories.CargoRepository;
-import com.hersac.herp.modulos.nomina.cargos.mappers.CargoMappper;
 import com.hersac.herp.modulos.nomina.empleados.EmpleadosServices;
 import com.hersac.herp.modulos.nomina.empleados.dto.ActualizarEmpleadoDTO;
 import com.hersac.herp.modulos.nomina.empleados.dto.CrearEmpleadoDTO;
