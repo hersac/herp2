@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ActualizarTerceroDTO {
+
     @NotNull(message = "El id del cargo es requerido")
     @Positive(message = "El id del cargo debe ser mayor a 0")
     private Long id;
