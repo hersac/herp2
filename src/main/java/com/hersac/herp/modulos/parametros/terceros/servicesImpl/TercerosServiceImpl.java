@@ -8,9 +8,11 @@ import com.hersac.herp.modulos.parametros.terceros.entidades.TerceroEntity;
 import com.hersac.herp.modulos.parametros.terceros.entidades.repository.TerceroRepository;
 import com.hersac.herp.modulos.parametros.terceros.mappers.TerceroMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TercerosServiceImpl implements TercerosService {
     @Autowired
     private TerceroRepository terceroRepository;

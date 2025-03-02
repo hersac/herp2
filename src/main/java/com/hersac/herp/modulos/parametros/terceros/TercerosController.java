@@ -1,5 +1,6 @@
 package com.hersac.herp.modulos.parametros.terceros;
 
+import com.hersac.herp.modulos.parametros.terceros.dto.ActualizarTerceroDTO;
 import com.hersac.herp.modulos.parametros.terceros.dto.CrearTerceroDTO;
 import com.hersac.herp.modulos.parametros.terceros.entidades.TerceroEntity;
 import jakarta.validation.Valid;
@@ -33,7 +34,7 @@ public class TercerosController {
     @PutMapping("/{terceroId}")
     public ResponseEntity<TerceroEntity> actualizar(
             @PathVariable Long terceroId,
-            @Valid CrearTerceroDTO datosNuevos) {
+            @Valid ActualizarTerceroDTO datosNuevos) {
         tercerosService.actualizar(terceroId, datosNuevos);
         return ResponseEntity.noContent().build();
     }
